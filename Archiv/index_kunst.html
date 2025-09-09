@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brigitte Romann – Werke</title>
+
+  <!-- Google Fonts (wie Original: Inter + Cardo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --font-body: 'Inter', sans-serif;
+      --font-heading: 'Cardo', serif;
+      --color-bg: #fff;
+      --color-text: #111;
+      --color-text-light: #666;
+      --color-border: #ddd;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.55;
+    }
+
+    /* HEADER + NAVIGATION */
+    header.site-header {
+      border-bottom: 1px solid var(--color-border);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 1000;
+    }
+    .site-header .wp-block-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .wp-block-site-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+    .wp-block-site-title a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVIGATION */
+    .wp-block-navigation__container {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.2rem;
+    }
+    .wp-block-navigation a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: 500;
+    }
+    .wp-block-navigation a:hover {
+      text-decoration: underline;
+    }
+
+    /* BURGER BUTTON */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* GALERIE */
+    main {
+      padding: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background: #fff;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    .card .caption {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 1rem;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 70%;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      margin-bottom: 1rem;
+    }
+    .lightbox .title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+    .lightbox .caption {
+      font-size: 1rem;
+      color: #ccc;
+    }
+    .lightbox .close,
+    .lightbox .prev,
+    .lightbox .next {
+      position: absolute;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      font-family: var(--font-body);
+      user-select: none;
+    }
+    .lightbox .close {
+      top: 20px;
+      right: 30px;
+    }
+    .lightbox .prev,
+    .lightbox .next {
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      padding: 0 0.5rem;
+    }
+    .lightbox .prev { left: 30px; }
+    .lightbox .next { right: 30px; }
+
+    /* FOOTER */
+    footer {
+      padding: 1rem;
+      text-align: center;
+      border-top: 1px solid var(--color-border);
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .wp-block-navigation__container {
+        display: none;
+        flex-direction: column;
+        gap: 0.8rem;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        right: 1rem;
+        padding: 1rem;
+        border: 1px solid var(--color-border);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      .wp-block-navigation__container.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER mit Navigation -->
+<header class="site-header">
+    <div class="wp-block-group">
+            <div class="wp-block-site-title">
+                    <a href="#">Brigitte Romann</a>
+                    <div style="font-family: var(--font-heading); font-size: 1rem; color: var(--color-text-light); margin-top: 0.2rem;">
+                        Zeitgenössische Kunst – Ausstellung
+                    </div>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav class="wp-block-navigation">
+                <ul class="wp-block-navigation__container" id="navMenu">
+                        <!-- Hauptnavigationspunkte -->
+                        <li><a href="#" onclick="showCategory('malerei')">Galerie</a></li>
+                        <li>
+                            <a href="#kuenstler">Künstler</a>
+                            <ul>
+                                <li><a href="#vita">Vita</a></li>
+                                <li><a href="#leinwand">Malerei - Arbeiten auf Leinwand</a></li>
+                                <li><a href="#kuenstler3">Malerei - Arbeiten auf Papier</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                        <li><a href="#datenschutz">Datenschutzerklärung</a></li>
+                        <li><a href="#impressum">Impressum</a></li>
+                </ul>
+            </nav>
+    </div>
+    </header>
+
+  <!-- GALERIE -->
+  <main>
+    <!-- Malerei -->
+    <section id="malerei" class="gallery">
+      <div class="card" onclick="openLightbox(0, 'malerei')">
+        <img src="werke/malerei1.jpg" alt="Malerei 1">
+        <div class="caption">Malerei 1</div>
+      </div>
+      <div class="card" onclick="openLightbox(1, 'malerei')">
+        <img src="werke/malerei2.jpg" alt="Malerei 2">
+        <div class="caption">Malerei 2</div>
+      </div>
+      <div class="card" onclick="openLightbox(2, 'malerei')">
+        <img src="werke/malerei3.jpg" alt="Malerei 3">
+        <div class="caption">Malerei 3</div>
+      </div>
+      <div class="card" onclick="openLightbox(3, 'malerei')">
+        <img src="werke/malerei4.jpg" alt="Malerei 4">
+        <div class="caption">Malerei 4</div>
+      </div>
+    </section>
+
+    <!-- Skulptur -->
+    <section id="skulptur" class="gallery hidden">
+      <div class="card" onclick="openLightbox(0, 'skulptur')">
+        <img src="werke/skulptur1.jpg" alt="Skulptur 1">
+        <div class="caption">Skulptur 1</div>
+      </div>
+    </section>
+
+    <!-- Zeichnung -->
+    <section id="zeichnung" class="gallery hidden">
+      <div class="card" onclick="openLightbox(0, 'zeichnung')">
+        <img src="werke/zeichnung1.jpg" alt="Zeichnung 1">
+        <div class="caption">Zeichnung 1</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">✕</span>
+    <span class="prev" onclick="changeImage(-1)">❮</span>
+    <img id="lightbox-img" src="" alt="">
+    <div class="title" id="lightbox-title"></div>
+    <div class="caption" id="lightbox-caption"></div>
+    <span class="next" onclick="changeImage(1)">❯</span>
+  </div>
+
+  <!-- Künstler -->
+<section id="kuenstler" style="padding:2rem; max-width:800px; margin:auto;">
+  <h2>Künstler</h2>
+  <p>Hier kommt die Biografie und Beschreibung von Brigitte Romann hin.</p>
+</section>
+
+<!-- Kontakt -->
+<section id="kontakt" style="padding:2rem; max-width:800px; margin:auto;">
+  <h2>Kontakt</h2>
+  <p>E-Mail: info@brigitte-romann.de</p>
+  <p>Telefon: +49 (0)123 456789</p>
+</section>
+
+<!-- Datenschutzerklärung -->
+<section id="datenschutz" style="padding:2rem; max-width:800px; margin:auto;">
+  <h2>Datenschutzerklärung</h2>
+  <p>Hier kommt der Text zur Datenschutzerklärung.</p>
+</section>
+
+<!-- Impressum -->
+<section id="impressum" style="padding:2rem; max-width:800px; margin:auto;">
+  <h2>Impressum</h2>
+  <p>Hier kommt das Impressum mit allen rechtlichen Angaben.</p>
+</section>
+
+<footer>
+    <nav class="wp-block-navigation" style="margin-bottom: 0.7rem;">
+        <ul class="wp-block-navigation__container" style="justify-content: center; gap: 1.2rem;">
+            <li><a href="#" onclick="showCategory('malerei')">Galerie</a></li>
+            <li><a href="#kuenstler">Künstler</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="#datenschutz">Datenschutzerklärung</a></li>
+            <li><a href="#impressum">Impressum</a></li>
+        </ul>
+    </nav>
+    © <span id="year"></span> Brigitte Romann — Alle Rechte vorbehalten.
+</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    let currentIndex = 0;
+    let currentCategory = '';
+    const galleries = {
+      malerei: [
+        { src: 'werke/malerei1.jpg', title: 'Malerei 1', caption: 'Arbeit auf Leinwand, 2023' },
+        { src: 'werke/malerei2.jpg', title: 'Malerei 2', caption: 'Acryl auf Leinwand, 2024' }
+      ],
+      skulptur: [
+        { src: 'werke/skulptur1.jpg', title: 'Skulptur 1', caption: 'Bronze, 2022' }
+      ],
+      zeichnung: [
+        { src: 'werke/zeichnung1.jpg', title: 'Zeichnung 1', caption: 'Bleistift auf Papier, 2021' }
+      ]
+    };
+
+    function showCategory(category) {
+      document.querySelectorAll("main section").forEach(sec => sec.classList.add("hidden"));
+      document.getElementById(category).classList.remove("hidden");
+      document.getElementById("navMenu").classList.remove("active");
+    }
+
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+
+    function openLightbox(index, category) {
+      currentIndex = index;
+      currentCategory = category;
+      updateLightbox();
+      document.getElementById("lightbox").classList.add("active");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("active");
+      document.getElementById("lightbox-img").src = "";
+    }
+
+    function changeImage(direction) {
+      const images = galleries[currentCategory];
+      currentIndex = (currentIndex + direction + images.length) % images.length;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const item = galleries[currentCategory][currentIndex];
+      document.getElementById("lightbox-img").src = item.src;
+      document.getElementById("lightbox-title").textContent = item.title;
+      document.getElementById("lightbox-caption").textContent = item.caption;
+    }
+
+    document.getElementById("lightbox").addEventListener("click", function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    // Tastatursteuerung
+    document.addEventListener("keydown", function(e) {
+      const lightbox = document.getElementById("lightbox");
+      if (!lightbox.classList.contains("active")) return;
+      if (e.key === "Escape") {
+        closeLightbox();
+      } else if (e.key === "ArrowLeft") {
+        changeImage(-1);
+      } else if (e.key === "ArrowRight") {
+        changeImage(1);
+      }
+    });
+  </script>
+</body>
+</html>

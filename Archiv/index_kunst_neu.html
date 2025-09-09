@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kunst von Brigitte Romann</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #222;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        nav {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        /* Hamburger Icon */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            z-index: 20;
+            cursor: pointer;
+        }
+        ul.menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        ul.menu > li {
+            position: relative;
+        }
+        ul.menu > li > a {
+            display: block;
+            padding: 18px 24px;
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        ul.menu > li > a:hover,
+        ul.menu > li > a:focus {
+            background: #f5f5f5;
+        }
+        /* Dropdown */
+        ul.menu li ul {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background: #fff;
+            min-width: 180px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            z-index: 10;
+        }
+        ul.menu li:hover > ul,
+        ul.menu li:focus-within > ul {
+            display: block;
+        }
+        ul.menu li ul li a {
+            padding: 12px 20px;
+            color: #222;
+            text-decoration: none;
+            display: block;
+            background: #fff;
+            transition: background 0.2s;
+        }
+        ul.menu li ul li a:hover,
+        ul.menu li ul li a:focus {
+            background: #f5f5f5;
+        }
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #eee;
+            background: #fafafa;
+        }
+        /* Responsive Styles */
+        @media (max-width: 800px) {
+            nav {
+                padding: 0 10px;
+            }
+            main {
+                margin: 20px auto;
+            }
+        }
+        @media (max-width: 700px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 16px;
+            }
+        }
+        @media (max-width: 600px) {
+            .menu-toggle {
+                display: block;
+            }
+            ul.menu {
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                display: none;
+                border-bottom: 1px solid #eee;
+            }
+            ul.menu.open {
+                display: flex;
+            }
+            ul.menu > li > a {
+                padding: 16px 16px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            ul.menu li ul {
+                position: static;
+                min-width: 0;
+                box-shadow: none;
+                border: none;
+            }
+            ul.menu li ul {
+                display: none;
+            }
+            ul.menu li.open > ul {
+                display: block;
+            }
+            ul.menu li ul li a {
+                padding: 12px 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <button class="menu-toggle" aria-label="Menü öffnen">&#9776;</button>
+            <ul class="menu">
+                <li><a href="#">Start</a></li>
+                <li>
+                    <a href="#" tabindex="0">Galerie</a>
+                    <ul>
+                        <li><a href="#">Malerei</a></li>
+                        <li><a href="#">Zeichnungen</a></li>
+                        <li><a href="#">Skulpturen</a></li>
+                        <li><a href="#">Fotografie</a></li>
+                        <li><a href="#">Installationen</a></li>
+                        <li><a href="#">Projekte</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Über die Künstlerin</a></li>
+                <li><a href="#">Ausstellungen</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="gallery">
+            <!-- Beispielbilder, bitte durch eigene Bilder ersetzen -->
+            <img src="bilder/bild1.jpg" alt="Kunstwerk 1">
+            <img src="bilder/bild2.jpg" alt="Kunstwerk 2">
+            <img src="bilder/bild3.jpg" alt="Kunstwerk 3">
+            <img src="bilder/bild4.jpg" alt="Kunstwerk 4">
+            <img src="bilder/bild5.jpg" alt="Kunstwerk 5">
+            <img src="bilder/bild6.jpg" alt="Kunstwerk 6">
+        </section>
+    </main>
+    <script>
+        // Hamburger Menü für Mobilgeräte
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+
+        // Dropdown für Mobilgeräte
+        document.querySelectorAll('.menu > li').forEach(function(li) {
+            li.addEventListener('click', function(e) {
+                if(window.innerWidth <= 600 && this.querySelector('ul')) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    this.classList.toggle('open');
+                }
+            });
+        });
+
+        // Schließen des Menüs beim Klick außerhalb
+        document.addEventListener('click', function(e) {
+            if(window.innerWidth <= 600) {
+                if(!e.target.closest('nav')) {
+                    menu.classList.remove('open');
+                    document.querySelectorAll('.menu > li.open').forEach(li => li.classList.remove('open'));
+                }
+            }
+        });
+    </script>
+</body>
+</html>
