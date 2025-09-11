@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Brigitte Romann – Künstlerin" />
+  <title>Brigitte Romann – Künstlerin</title>
+  
+  <!-- Google Fonts (wie Original: Inter + Cardo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #ffffff;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    header, footer {
+      background: #f8f8f8;
+      padding: 1rem;
+      color: #111;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+      font-family: 'Cardo', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      border-bottom: 0px solid #eee;
+      padding-bottom: 0.3rem;
+    }
+    
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+      font-family: 'Cardo', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-bottom: 0px solid #eee;
+      padding-bottom: 0.3rem;
+    }
+
+    h4 {
+      margin-bottom: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      border-bottom: 0px solid #eee;
+      padding-bottom: 0.3rem;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      margin: 0 0rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 400;
+    }
+
+    nav a:hover {
+      color: #666;
+    }
+
+    main {
+      margin-left: 10%;
+      margin-right: 10%;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 800px) {
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+
+    /* Dropdown Menu Styles */
+      .main-nav {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+      }
+      .main-nav > li {
+        position: relative;
+      }
+      .main-nav > li > a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 400;
+        font-family: 'Cardo', serif;
+        padding: 0.5rem 0.8rem;
+        display: block;
+        transition: color 0.2s;
+      }
+      .main-nav > li > a:hover {
+        color: #666;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background: #fff;
+        min-width: 220px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border-radius: 0 0 6px 6px;
+        z-index: 10;
+        padding: 0.5rem 0;
+      }
+      .dropdown-content li {
+        list-style: none;
+      }
+      .dropdown-content li a {
+        color: #333;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: block;
+        font-weight: normal;
+        font-size: 0.97rem;
+        white-space: nowrap;
+      }
+      .dropdown-content li a:hover {
+        background: #f0f0f0;
+        color: #111;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      @media (max-width: 800px) {
+        .main-nav {
+          flex-direction: column;
+          gap: 0.5rem;
+          align-items: flex-start;
+        }
+        .dropdown-content {
+          position: static;
+          box-shadow: none;
+          border-radius: 0;
+          min-width: 0;
+        }
+      }
+  </style>
+</head>
+
+<body>
+  
+  <header style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <div style="text-align: left; margin-left: 10%;">
+      <h1 style="margin-bottom: 0.2rem;">Brigitte Romann</h1>
+      <div style="font-size: 1rem; color: #555; font-family: 'Cardo', serif;">Zeitgenössische Kunst</div>
+    </div>
+    <nav style="text-align: center; margin-right: 10%; position: relative;">
+      <button id="burger-menu" aria-label="Menü öffnen" style="display:none; background:none; border:none; cursor:pointer; font-size:1rem; padding:0.3em 0.6em; font-family: 'Cardo', serif; font-weight: 400; z-index: 101; position: relative;">
+      ☰ Menü
+      </button>
+      <ul class="main-nav">
+      <li><a href="index_kunst_selber.html" onclick="closeMenuOnMobile()">Start</a></li>
+       <li><a href="kuenstlerin.html" onclick="closeMenuOnMobile()">Künstlerin</a></li>
+      <li><a href="vita.html" onclick="closeMenuOnMobile()">Vita</a></li>
+      <li class="dropdown">
+        <a href="#kunst" onclick="closeMenuOnMobile()">Kunst</a>
+        <ul class="dropdown-content">
+        <li><a href="malerei_leinwand.html" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Malerei - Arbeiten auf Leinwand</em></a></li>
+        <li><a href="malerei_papier.html" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Malerei - Arbeiten auf Papier</em></a></li>
+        <li><a href="zeichnungen.html" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Zeichnungen und Skizzen</em></a></li>
+        <li><a href="collagen.html" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Collagen und Monotypien</em></a></li>
+        <li><a href="objekte.html" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Objekte und Textilarbeiten</em></a></li>
+        </ul>
+      </li>
+      <li><a href="kontakt.html" onclick="closeMenuOnMobile()">Kontakt</a></li>
+      </ul>
+      <style>
+      @media (max-width: 800px) {
+        .main-nav {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        margin-left: 50%;
+        background: rgba(255,255,255,0.98);
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+        padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+        z-index: 100;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        display: none;
+        overflow-y: auto;
+        }
+        .main-nav.open {
+        display: flex !important;
+        }
+        .dropdown-content {
+        position: static !important;
+        box-shadow: none;
+        border-radius: 0;
+        min-width: 0;
+        }
+      }
+      </style>
+    </nav>
+    <script>
+      // Burger Menü Funktionalität
+      const burger = document.getElementById('burger-menu');
+      const nav = document.querySelector('.main-nav');
+
+      function checkWidth() {
+        if (window.innerWidth <= 800) {
+          burger.style.display = 'block';
+          nav.style.display = 'none';
+        } else {
+          burger.style.display = 'none';
+          nav.style.display = 'flex';
+        }
+      }
+
+      burger.addEventListener('click', function() {
+        if (nav.style.display === 'none' || nav.style.display === '') {
+          nav.style.display = 'flex';
+        } else {
+          nav.style.display = 'none';
+        }
+      });
+
+      window.addEventListener('resize', checkWidth);
+      window.addEventListener('DOMContentLoaded', checkWidth);
+    </script>
+  </header>
+
+  <main>
+    <h1>Objekte und Textilarbeiten</h1>
+    <!-- Galerie-Block -->
+    <div class="gallery">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_1.jpg" alt="Objekt 1" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_2.jpg" alt="Objekt 2" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_3.jpg" alt="Objekt 3" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_4.jpg" alt="Objekt 4" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_5.jpg" alt="Objekt 5" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_6.jpg" alt="Objekt 6" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_7.jpg" alt="Objekt 7" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_8.jpg" alt="Objekt 8" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_9.jpg" alt="Objekt 9" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_10.jpg" alt="Objekt 10" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_11.jpg" alt="Objekt 11" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_12.jpg" alt="Objekt 12" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_13.jpg" alt="Objekt 13" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_14.jpg" alt="Objekt 14" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_15.jpg" alt="Objekt 15" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_16.jpg" alt="Objekt 16" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_17.jpg" alt="Objekt 17" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_18.jpg" alt="Objekt 18" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_19.jpg" alt="Objekt 19" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_20.jpg" alt="Objekt 20" tabindex="0">
+        <img src="Bilder/Kunst/5_Objekte/Objekte_Bild_21.jpg" alt="Objekt 21" tabindex="0">
+        <!-- Weitere Bilder nach Bedarf -->
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" style="display:none;">
+        <span class="close" tabindex="0">&times;</span>
+        <img class="lightbox-img" src="" alt="">
+        <button class="prev" aria-label="Vorheriges Bild">&#10094;</button>
+        <button class="next" aria-label="Nächstes Bild">&#10095;</button>
+        <div class="lightbox-thumbs"></div>
+    </div>
+
+    <style>
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        justify-content: flex-start;
+    }
+    .gallery img {
+        width: 260px;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        cursor: pointer;
+        transition: transform 0.15s;
+    }
+    .gallery img:hover, .gallery img:focus {
+        transform: scale(1.03);
+        outline: 2px solid #bbb;
+    }
+    .lightbox {
+        position: fixed;
+        z-index: 2000;
+        left: 0; top: 0;
+        width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.92);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.2s;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .lightbox-img {
+        max-width: 90vw;
+        max-height: 70vh;
+        border-radius: 8px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+        margin-bottom: 18px;
+        background: #fff;
+    }
+    .lightbox .close {
+        position: absolute;
+        top: 24px;
+        right: 38px;
+        color: #fff;
+        font-size: 2.5rem;
+        font-weight: 300;
+        cursor: pointer;
+        z-index: 2100;
+        transition: color 0.2s;
+    }
+    .lightbox .close:hover, .lightbox .close:focus {
+        color: #bbb;
+    }
+    .lightbox .prev, .lightbox .next {
+        position: absolute;
+        top: 50%;
+        color: #fff;
+        background: rgba(0,0,0,0.25);
+        border: none;
+        font-size: 2.2rem;
+        cursor: pointer;
+        padding: 0.2em 0.6em;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        z-index: 2100;
+        transition: background 0.2s;
+    }
+    .lightbox .prev { left: 32px; }
+    .lightbox .next { right: 32px; }
+    .lightbox .prev:hover, .lightbox .next:hover,
+    .lightbox .prev:focus, .lightbox .next:focus {
+        background: rgba(0,0,0,0.45);
+    }
+    .lightbox-thumbs {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 12px;
+        flex-wrap: wrap;
+        max-width: 90vw;
+        overflow-x: auto;
+    }
+    .lightbox-thumbs img {
+        width: 54px;
+        height: auto;
+        border-radius: 4px;
+        opacity: 0.6;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: opacity 0.15s, border 0.15s;
+    }
+    .lightbox-thumbs img.active {
+        opacity: 1;
+        border: 2px solid #fff;
+    }
+    @media (max-width: 600px) {
+        .gallery img { width: 98vw; }
+        .lightbox-img { max-width: 98vw; }
+        .lightbox-thumbs { max-width: 98vw; }
+    }
+    </style>
+
+    <script>
+    (function() {
+        const gallery = document.querySelector('.gallery');
+        const images = Array.from(gallery.querySelectorAll('img'));
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('.lightbox-img');
+        const closeBtn = lightbox.querySelector('.close');
+        const prevBtn = lightbox.querySelector('.prev');
+        const nextBtn = lightbox.querySelector('.next');
+        const thumbs = lightbox.querySelector('.lightbox-thumbs');
+        let current = 0;
+
+        // Thumbnails in Lightbox generieren
+        function renderThumbs() {
+            thumbs.innerHTML = '';
+            images.forEach((img, idx) => {
+                const thumb = document.createElement('img');
+                thumb.src = img.src;
+                thumb.alt = img.alt;
+                thumb.tabIndex = 0;
+                if (idx === current) thumb.classList.add('active');
+                thumb.addEventListener('click', () => showImage(idx));
+                thumb.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') showImage(idx);
+                });
+                thumbs.appendChild(thumb);
+            });
+        }
+
+        function showImage(idx) {
+            current = idx;
+            lightboxImg.src = images[current].src;
+            lightboxImg.alt = images[current].alt;
+            Array.from(thumbs.children).forEach((t, i) => {
+                t.classList.toggle('active', i === current);
+            });
+        }
+
+        function openLightbox(idx) {
+            current = idx;
+            lightbox.style.display = 'flex';
+            showImage(current);
+            renderThumbs();
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => closeBtn.focus(), 100);
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function nextImage() {
+            current = (current + 1) % images.length;
+            showImage(current);
+        }
+
+        function prevImage() {
+            current = (current - 1 + images.length) % images.length;
+            showImage(current);
+        }
+
+        images.forEach((img, idx) => {
+            img.addEventListener('click', () => openLightbox(idx));
+            img.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') openLightbox(idx);
+            });
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        closeBtn.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') closeLightbox();
+        });
+        nextBtn.addEventListener('click', nextImage);
+        prevBtn.addEventListener('click', prevImage);
+
+        // Tastatursteuerung
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'ArrowRight') { nextImage(); }
+                else if (e.key === 'ArrowLeft') { prevImage(); }
+                else if (e.key === 'Escape') { closeLightbox(); }
+            }
+        });
+
+        // Klick außerhalb des Bildes schließt Lightbox
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+    })();
+    </script>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Brigitte Romann – Alle Rechte vorbehalten</p>
+    <p><a style="color: #333; font-weight: 400; font-family: 'Cardo', serif;"href="datenschutz.html">Datenschutz</a> | <a style="color: #333; font-weight: 400; font-family: 'Cardo', serif;"href="impressum.html">Impressum</a></p>
+  </footer>
+</body>
+</html>

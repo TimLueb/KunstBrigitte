@@ -34,7 +34,7 @@
     h1 {
       margin-bottom: 1.5rem;
       font-family: 'Cardo', serif;
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: 400;
       border-bottom: 0px solid #eee;
       padding-bottom: 0.3rem;
@@ -44,6 +44,24 @@
       margin-bottom: 1rem;
       font-size: 1.5rem;
       border-bottom: 2px solid #eee;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+      font-family: 'Cardo', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-bottom: 0px solid #eee;
+      padding-bottom: 0.3rem;
+    }
+
+    h4 {
+      margin-bottom: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      border-bottom: 0px solid #eee;
       padding-bottom: 0.3rem;
     }
 
@@ -170,19 +188,19 @@
       </button>
       <ul class="main-nav">
       <li><a href="index_kunst_selber.html" onclick="closeMenuOnMobile()">Start</a></li>
-       <li><a href="index_kunst_selber.html" onclick="closeMenuOnMobile()">Galerie</a></li>
-      <li><a href="#vita" onclick="closeMenuOnMobile()">Vita</a></li>
+       <li><a href="kuenstlerin.html" onclick="closeMenuOnMobile()">Künstlerin</a></li>
+      <li><a href="vita.html" onclick="closeMenuOnMobile()">Vita</a></li>
       <li class="dropdown">
         <a href="#kunst" onclick="closeMenuOnMobile()">Kunst</a>
         <ul class="dropdown-content">
-        <li><a href="#malerei_leinwand" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Malerei - Arbeiten auf Leinwand</em></a></li>
-        <li><a href="#malerei_papier" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Malerei - Arbeiten auf Papier</em></a></li>
-        <li><a href="#zeichnungen" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Zeichnungen und Skizzen</em></a></li>
-        <li><a href="#collagen" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Collagen und Monotypien</em></a></li>
-        <li><a href="#objekte" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Objekte und Textilarbeiten</em></a></li>
+        <li><a href="malerei_leinwand.html" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Malerei - Arbeiten auf Leinwand</em></a></li>
+        <li><a href="malerei_papier.html" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Malerei - Arbeiten auf Papier</em></a></li>
+        <li><a href="zeichnungen.html" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Zeichnungen und Skizzen</em></a></li>
+        <li><a href="collagen.html" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Collagen und Monotypien</em></a></li>
+        <li><a href="objekte.html" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Objekte und Textilarbeiten</em></a></li>
         </ul>
       </li>
-      <li><a href="#kontakt" onclick="closeMenuOnMobile()">Kontakt</a></li>
+      <li><a href="kontakt.html" onclick="closeMenuOnMobile()">Kontakt</a></li>
       </ul>
       <style>
       @media (max-width: 800px) {
@@ -245,47 +263,158 @@
 
   <main>
     <h1 style="margin-top: 50px;">Brigitte Romann</h1>
-    <section style="display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap;">
-      <div style="flex: 1 1 250px; min-width: 220px; max-width: 320px;">
-        <img src="Bilder/Startseite/Brigitte_bei_der_Arbeit.jpg" alt="Brigitte Romann Portrait" style="width: 250px; height: auto; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
-        <img src="Bilder/Startseite/Atelier_Thueringen.jpg" alt="Atelier in Thüringen (2002-2021)" style="width: auto; height: 250px; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
-        <p style="font-size: 0.8em;">Atelier in Thüringen (2002-2021)</p>
-        <img src="Bilder/Startseite/Atelier_Schwabach.jpg" alt="Atelier in Schwabach (seit 2021)" style="width: 250px; height: auto; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
-        <p style="font-size: 0.8em;">Atelier in Schwabach (seit 2021)</p>
-      </div>
-      <div style="flex: 2 1; min-width: 300px;">
-        <p>Die Künstlerin zeigt eine Auswahl von Arbeiten, die in den letzten Jahren entstanden sind.</p>
-        <p>Die Werke spiegeln verschiedene Orte und scheinbar gegensätzliche Themen, mit denen sie sich immer wieder intensiv und aufs Neue auseinandersetzt.</p>
-        <p>Im Mittelpunkt steht dabei der Prozess des künstlerischen Schaffens, das Experimentieren mit unterschiedlichen Materialien und Techniken.</p>
-        <p>Ausgangsmaterial sind u.a. Skizzen, Fotografien, Fundstücke und Fragmente, alte Stoffe und Papiere.</p>
-        <p>Oft entstehen ganze Serien zu einem Thema, die mit unterschiedlichen künstlerischen Mitteln wie Zeichnung, Malerei, Monotypie, Collage, Installation von Objekten bis hin zu Textilarbeiten umgesetzt werden.</p>
-        <p>Aus der ungebrochenen Spontanität im Umgang mit Material und Themen resultiert eine überraschende Vielfalt an Werken. Scheinbar unbefangen, geradezu spielerisch changieren die Arbeiten zwischen Figurativ-Gegenständlichem und Abstraktion.</p>
-      </div>
-      </style>
-    </section>
-   
+    <div id="slideshow-container" style="position: relative; max-width: 600px; max-height: 400px; margin: 2rem auto; margin-bottom: 500px;">
+      <button id="prev-slide" aria-label="Vorheriges Bild" style="position: absolute; top: 5%; left: 3%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; font-size: 2rem; cursor: pointer; z-index: 2; border-radius: 50%; width: 40px; height: 40px;">&#8592;</button>
+      <button id="next-slide" aria-label="Nächstes Bild" style="position: absolute; top: 5%; right: 3%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; font-size: 2rem; cursor: pointer; z-index: 2; border-radius: 50%; width: 40px; height: 40px;">&#8594;</button>
+      <button id="pause-slide" aria-label="Diashow pausieren" style="position: absolute; top: 3%; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.85); border: none; font-size: 1.1rem; cursor: pointer; z-index: 2; border-radius: 6px; padding: 0.3em 1em;">Pause</button>
+      <img id="slideshow-image" src="Bilder/Startseite/PXL_20240104_1.jpg" alt="Kunstwerk 1" style="width: 100%; display: block; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+    </div>
 
-    <section id="kontakt">
-      <h2>Kontakt</h2>
-      <p>Sie möchten mit Brigitte Romann in Kontakt treten? Schreiben Sie eine Nachricht:</p>
-      <form>
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.92); justify-content:center; align-items:center; z-index:9999;">
+      <button id="lightbox-prev" aria-label="Vorheriges Bild" style="position:absolute; left:40px; top:50%; transform:translateY(-50%); background:none; border:none; color:#fff; font-size:3rem; cursor:pointer; z-index:10001;">&#8592;</button>
+      <img id="lightbox-image" src="" alt="Vollbild Kunstwerk" style="max-width:90vw; max-height:90vh; border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+      <button id="lightbox-next" aria-label="Nächstes Bild" style="position:absolute; right:40px; top:50%; transform:translateY(-50%); background:none; border:none; color:#fff; font-size:3rem; cursor:pointer; z-index:10001;">&#8594;</button>
+      <button id="close-lightbox" aria-label="Schließen" style="position:absolute; top:30px; right:40px; background:none; border:none; color:#fff; font-size:2.5rem; cursor:pointer; z-index:10001;">&times;</button>
+    </div>
+    <script>
+      // Lightbox Pfeile
+      const lightboxPrev = document.getElementById('lightbox-prev');
+      const lightboxNext = document.getElementById('lightbox-next');
 
-        <label for="email">E-Mail:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+      lightboxPrev.addEventListener('click', function() {
+        showSlide(currentSlide - 1);
+        lightboxImg.src = slideshowImages[currentSlide].src;
+        lightboxImg.alt = slideshowImages[currentSlide].alt;
+      });
 
-        <label for="message">Nachricht:</label><br>
-        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+      lightboxNext.addEventListener('click', function() {
+        showSlide(currentSlide + 1);
+        lightboxImg.src = slideshowImages[currentSlide].src;
+        lightboxImg.alt = slideshowImages[currentSlide].alt;
+      });
+    </script>
 
-        <button type="submit">Senden</button>
-      </form>
-    </section>
+    <script>
+      // Bilddaten (ersetze die Pfade durch deine eigenen Bilder)
+      const slideshowImages = [
+        { src: 'Bilder/Startseite/PXL_20240104_1.jpg', alt: 'Kunstwerk 1' },
+        { src: 'Bilder/Startseite/PXL_20240104_2.jpg', alt: 'Kunstwerk 2' },
+        { src: 'Bilder/Startseite/PXL_20240104_3.jpg', alt: 'Kunstwerk 3' },
+        { src: 'Bilder/Startseite/PXL_20240104_4.jpg', alt: 'Kunstwerk 4' },
+        { src: 'Bilder/Startseite/PXL_20240104_5.jpg', alt: 'Kunstwerk 5' },
+        { src: 'Bilder/Startseite/PXL_20240106_6.jpg', alt: 'Kunstwerk 6' }
+      ];
+
+      let currentSlide = 0;
+      let slideshowInterval = null;
+      let isPaused = false;
+
+      const imgEl = document.getElementById('slideshow-image');
+      const prevBtn = document.getElementById('prev-slide');
+      const nextBtn = document.getElementById('next-slide');
+      const pauseBtn = document.getElementById('pause-slide');
+      const lightbox = document.getElementById('lightbox-modal');
+      const lightboxImg = document.getElementById('lightbox-image');
+      const closeLightboxBtn = document.getElementById('close-lightbox');
+
+      function showSlide(idx) {
+        currentSlide = (idx + slideshowImages.length) % slideshowImages.length;
+        imgEl.src = slideshowImages[currentSlide].src;
+        imgEl.alt = slideshowImages[currentSlide].alt;
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function prevSlideFunc() {
+        showSlide(currentSlide - 1);
+      }
+
+      function startSlideshow() {
+        if (slideshowInterval) clearInterval(slideshowInterval);
+        slideshowInterval = setInterval(() => {
+          if (!isPaused) nextSlide();
+        }, 3000);
+      }
+
+      pauseBtn.addEventListener('click', function() {
+        isPaused = !isPaused;
+        pauseBtn.textContent = isPaused ? 'Fortsetzen' : 'Pause';
+        if (!isPaused) startSlideshow();
+      });
+
+      nextBtn.addEventListener('click', function() {
+        nextSlide();
+        isPaused = true;
+        pauseBtn.textContent = 'Fortsetzen';
+      });
+
+      prevBtn.addEventListener('click', function() {
+        prevSlideFunc();
+        isPaused = true;
+        pauseBtn.textContent = 'Fortsetzen';
+      });
+
+      imgEl.addEventListener('click', function() {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = slideshowImages[currentSlide].src;
+        lightboxImg.alt = slideshowImages[currentSlide].alt;
+        document.body.style.overflow = 'hidden';
+      });
+
+      closeLightboxBtn.addEventListener('click', function() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (lightbox.style.display === 'flex') {
+          if (e.key === 'Escape') {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
+          }
+          if (e.key === 'ArrowLeft') {
+            showSlide(currentSlide - 1);
+            lightboxImg.src = slideshowImages[currentSlide].src;
+            lightboxImg.alt = slideshowImages[currentSlide].alt;
+          }
+          if (e.key === 'ArrowRight') {
+            showSlide(currentSlide + 1);
+            lightboxImg.src = slideshowImages[currentSlide].src;
+            lightboxImg.alt = slideshowImages[currentSlide].alt;
+          }
+        } else {
+          if (e.key === 'ArrowLeft') {
+            prevSlideFunc();
+            isPaused = true;
+            pauseBtn.textContent = 'Fortsetzen';
+          }
+          if (e.key === 'ArrowRight') {
+            nextSlide();
+            isPaused = true;
+            pauseBtn.textContent = 'Fortsetzen';
+          }
+        }
+      });
+
+      // Initialisierung
+      showSlide(currentSlide);
+      startSlideshow();
+    </script>
   </main>
 
   <footer>
     <p>&copy; 2025 Brigitte Romann – Alle Rechte vorbehalten</p>
-    <p><a style="color: #333; font-weight: 400; font-family: 'Cardo', serif;"href="#datenschutz">Datenschutz</a> | <a style="color: #333; font-weight: 400; font-family: 'Cardo', serif;"href="#impressum">Impressum</a></p>
+    <p><a style="color: #333; font-weight: 400; font-family: 'Cardo', serif;"href="datenschutz.html">Datenschutz</a> | <a style="color: #333; font-weight: 400; font-family: 'Cardo', serif;"href="impressum.html">Impressum</a></p>
   </footer>
 </body>
 </html>
