@@ -262,7 +262,190 @@
   </header>
 
   <main>
-    
+    <h1>Kontakt</h1>
+    <h3>Anfragen, Wünsche, Hinweise?</h3>
+    <p>Mit diesem Formular können Sie eine Nachricht an uns senden. Wir melden uns sobald wie möglich zurück.</p>
+    <form id="kontakt-form" action="#" method="post" style="max-width: 500px; margin-top: 2rem;">
+      <div style="margin-bottom: 1.2rem;">
+      <label for="name" style="display:block; margin-bottom:0.3rem;">Name <span style="color:red;">*</span></label>
+      <input type="text" id="name" name="Name" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+      <div style="margin-bottom: 1.2rem;">
+      <label for="email" style="display:block; margin-bottom:0.3rem;">E-Mail <span style="color:red;">*</span></label>
+      <input type="email" id="email" name="E-Mail" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+      <div style="margin-bottom: 1.2rem;">
+      <label for="email2" style="display:block; margin-bottom:0.3rem;">Bitte geben Sie Ihre E-Mail-Adresse nochmals ein <span style="color:red;">*</span></label>
+      <input type="email" id="email2" name="E-Mail-Wiederholung" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      <div id="email-error" style="color:red; font-size:0.95em; margin-top:0.3rem; display:none;"></div>
+      </div>
+      <div style="margin-bottom: 1.2rem;">
+      <label for="message" style="display:block; margin-bottom:0.3rem;">Nachricht</label>
+      <textarea id="message" name="Nachricht" rows="5" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;"></textarea>
+      </div>
+      <div style="margin-bottom: 1.2rem;">
+      <label for="spam" style="display:block; margin-bottom:0.3rem;">Frage (Spamschutz): Was ist die Farbe vom Schnee? <span style="color:red;">*</span></label>
+      <input type="text" id="spam" name="Spamschutz" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      <div id="spam-error" style="color:red; font-size:0.95em; margin-top:0.3rem; display:none;"></div>
+      </div>
+      <button type="submit" style="background:#333; color:#fff; padding:0.7rem 1.5rem; border:none; border-radius:4px; font-family:'Cardo',serif; font-size:1rem; cursor:pointer;">Absenden</button>
+      <div id="form-success" style="display:none; color:green; margin-top:1rem;">Vielen Dank! Ihre Nachricht wurde gesendet.</div>
+      <div id="form-error" style="display:none; color:red; margin-top:1rem;">Fehler beim Senden. Bitte versuchen Sie es später erneut.</div>
+    </form>
+    <script>
+      // Formular-Validierung bleibt wie gehabt
+
+      document.getElementById('kontakt-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      var spam = document.getElementById('spam').value.trim();
+      var spamError = document.getElementById('spam-error');
+      var validAnswers = ['weiß', 'weiss', 'Weiß', 'Weiss'];
+      var email = document.getElementById('email');
+      var email2 = document.getElementById('email2');
+      var emailError = document.getElementById('email-error');
+      var emailsMatch = email.value.trim() === email2.value.trim();
+
+      // Reset styles
+      email.style.backgroundColor = '';
+      email2.style.backgroundColor = '';
+      emailError.style.display = 'none';
+
+      // Check email match
+      if (!emailsMatch) {
+        email.style.backgroundColor = '#ffd6d6';
+        email2.style.backgroundColor = '#ffd6d6';
+        emailError.textContent = 'Die E-Mail-Adressen stimmen nicht überein.';
+        emailError.style.display = 'block';
+        email2.focus();
+        return;
+      }
+
+      // Check spam answer
+      if (!validAnswers.includes(spam)) {
+        spamError.textContent = 'Bitte beantworten Sie die Frage korrekt.';
+        spamError.style.display = 'block';
+        document.getElementById('spam').focus();
+        return;
+      } else {
+        spamError.style.display = 'none';
+      }
+
+      // Daten sammeln
+      const data = {
+        name: document.getElementById('name').value,
+        email: email.value,
+        message: document.getElementById('message').value,
+      };
+
+      // Hier muss ein externer Service verwendet werden, z.B. Formspree, Formsubmit, oder ein eigenes Backend.
+      // Beispiel mit Formspree (https://formspree.io):
+      // 1. Formular bei Formspree registrieren und Endpoint erhalten.
+      // 2. Unten die URL ersetzen.
+
+      try {
+        const response = await fetch('https://formspree.io/f/xovnbwgl', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message
+        })
+        });
+
+        if (response.ok) {
+        document.getElementById('form-success').style.display = 'block';
+        document.getElementById('form-error').style.display = 'none';
+        document.getElementById('kontakt-form').reset();
+        } else {
+        document.getElementById('form-success').style.display = 'none';
+        document.getElementById('form-error').style.display = 'block';
+        }
+      } catch (err) {
+        document.getElementById('form-success').style.display = 'none';
+        document.getElementById('form-error').style.display = 'block';
+      }
+      });
+
+      // Live check for email fields
+      document.getElementById('email2').addEventListener('input', function() {
+      var email = document.getElementById('email');
+      var email2 = document.getElementById('email2');
+      var emailError = document.getElementById('email-error');
+      if (email.value.trim() !== email2.value.trim()) {
+        email.style.backgroundColor = '#ffd6d6';
+        email2.style.backgroundColor = '#ffd6d6';
+        emailError.textContent = 'Die E-Mail-Adressen stimmen nicht überein.';
+        emailError.style.display = 'block';
+      } else {
+        email.style.backgroundColor = '';
+        email2.style.backgroundColor = '';
+        emailError.style.display = 'none';
+      }
+      });
+    </script>
+    <script>
+      document.getElementById('kontakt-form').addEventListener('submit', function(e) {
+        var spam = document.getElementById('spam').value.trim();
+        var spamError = document.getElementById('spam-error');
+        var validAnswers = ['weiß', 'weiss', 'Weiß', 'Weiss'];
+        var email = document.getElementById('email');
+        var email2 = document.getElementById('email2');
+        var emailError = document.getElementById('email-error');
+        var emailsMatch = email.value.trim() === email2.value.trim();
+
+        // Reset styles
+        email.style.backgroundColor = '';
+        email2.style.backgroundColor = '';
+        emailError.style.display = 'none';
+
+        // Check email match
+        if (!emailsMatch) {
+          email.style.backgroundColor = '#ffd6d6';
+          email2.style.backgroundColor = '#ffd6d6';
+          emailError.textContent = 'Die E-Mail-Adressen stimmen nicht überein.';
+          emailError.style.display = 'block';
+          email2.focus();
+          e.preventDefault();
+          return;
+        }
+
+        // Check spam answer
+        if (!validAnswers.includes(spam)) {
+          spamError.textContent = 'Bitte beantworten Sie die Frage korrekt.';
+          spamError.style.display = 'block';
+          document.getElementById('spam').focus();
+          e.preventDefault();
+          return;
+        } else {
+          spamError.style.display = 'none';
+        }
+
+        // For mailto: forms, let the browser handle the submission if all checks pass
+        // Optionally, you can show a message here before the mail client opens
+      });
+
+      // Live check for email fields
+      document.getElementById('email2').addEventListener('input', function() {
+        var email = document.getElementById('email');
+        var email2 = document.getElementById('email2');
+        var emailError = document.getElementById('email-error');
+        if (email.value.trim() !== email2.value.trim()) {
+          email.style.backgroundColor = '#ffd6d6';
+          email2.style.backgroundColor = '#ffd6d6';
+          emailError.textContent = 'Die E-Mail-Adressen stimmen nicht überein.';
+          emailError.style.display = 'block';
+        } else {
+          email.style.backgroundColor = '';
+          email2.style.backgroundColor = '';
+          emailError.style.display = 'none';
+        }
+      });
+    </script>
   </main>
 
   <footer>

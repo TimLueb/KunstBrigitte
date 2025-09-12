@@ -1,0 +1,53 @@
+<header style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+  <div style="text-align: left; margin-left: 10%;">
+    <h1 style="margin-bottom: 0.2rem;">Brigitte Romann</h1>
+    <div style="font-size: 1rem; color: #555; font-family: 'Cardo', serif;">Zeitgenössische Kunst</div>
+  </div>
+  <nav style="text-align: center; margin-right: 10%; position: relative;">
+    <button id="burger-menu" aria-label="Menü öffnen" style="display:none; background:none; border:none; cursor:pointer; font-size:1rem; padding:0.3em 0.6em; font-family: 'Cardo', serif; font-weight: 400; z-index: 101; position: relative;">
+    ☰ Menü
+    </button>
+    <ul class="main-nav">
+      <li><a href="index_kunst_selber.html" onclick="closeMenuOnMobile()">Start</a></li>
+      <li><a href="kuenstlerin.html" onclick="closeMenuOnMobile()">Künstlerin</a></li>
+      <li><a href="vita.html" onclick="closeMenuOnMobile()">Vita</a></li>
+      <li class="dropdown">
+        <a href="#kunst" onclick="closeMenuOnMobile()">Kunst</a>
+        <ul class="dropdown-content">
+          <li><a href="#malerei_leinwand" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Malerei - Arbeiten auf Leinwand</em></a></li>
+          <li><a href="#malerei_papier" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Malerei - Arbeiten auf Papier</em></a></li>
+          <li><a href="#zeichnungen" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Zeichnungen und Skizzen</em></a></li>
+          <li><a href="#collagen" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Collagen und Monotypien</em></a></li>
+          <li><a href="#objekte" style="padding-left: 20px; text-align: left; font-size: 0.9em;"><em>Objekte und Textilarbeiten</em></a></li>
+        </ul>
+      </li>
+      <li><a href="#kontakt" onclick="closeMenuOnMobile()">Kontakt</a></li>
+    </ul>
+  </nav>
+  <script>
+    // Burger Menü Funktionalität
+    const burger = document.getElementById('burger-menu');
+    const nav = document.querySelector('.main-nav');
+
+    function checkWidth() {
+      if (window.innerWidth <= 800) {
+        burger.style.display = 'block';
+        nav.style.display = 'none';
+      } else {
+        burger.style.display = 'none';
+        nav.style.display = 'flex';
+      }
+    }
+
+    burger.addEventListener('click', function() {
+      if (nav.style.display === 'none' || nav.style.display === '') {
+        nav.style.display = 'flex';
+      } else {
+        nav.style.display = 'none';
+      }
+    });
+
+    window.addEventListener('resize', checkWidth);
+    window.addEventListener('DOMContentLoaded', checkWidth);
+  </script>
+</header>
