@@ -147,3 +147,16 @@ footer p {
   display: block;
 }
 
+@media (max-width: 800px) {
+        .main-nav {
+          flex-direction: column;
+          gap: 0.5rem;
+          align-items: flex-start;
+        }
+        .dropdown-content {
+          position: static;
+          box-shadow: none;
+          border-radius: 0;
+          min-width: 0;
+        }
+      }
