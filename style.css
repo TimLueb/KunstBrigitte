@@ -87,7 +87,7 @@ footer p {
 }
 
 /* Responsive Design */
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   nav a {
     display: block;
     margin: 0.5rem 0;
@@ -150,7 +150,7 @@ footer p {
   display: block;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
         .main-nav {
           flex-direction: column;
           gap: 0.5rem;
