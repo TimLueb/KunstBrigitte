@@ -81,14 +81,16 @@
         margin-bottom: 100px;
     }
     .gallery img {
-        width: 25%;
+        width: 260px;
         max-width: 100%;
-        height: fit-content;
+        height: auto;
+        display: block;
         margin-bottom: 10px;
         border-radius: 6px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         cursor: pointer;
         transition: transform 0.15s;
+        object-fit: contain;
     }
     .gallery img:hover, .gallery img:focus {
         transform: scale(1.03);
