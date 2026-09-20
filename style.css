@@ -76,6 +76,52 @@ main {
   padding: 0 1rem;
 }
 
+.vita-title {
+  margin-top: 50px;
+}
+
+.vita-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 50px;
+}
+
+.vita-entry {
+  display: grid;
+  grid-template-columns: minmax(180px, 25%) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.vita-figure {
+  margin: 0;
+}
+
+.vita-figure img {
+  display: block;
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.vita-figure figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.vita-text p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.vita-link {
+  color: #007BFF;
+}
+
 section {
   margin-bottom: 3rem;
 }
@@ -91,6 +137,15 @@ footer p {
   nav a {
     display: block;
     margin: 0.5rem 0;
+  }
+
+  .vita-columns {
+    gap: 2rem;
+  }
+
+  .vita-entry {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 }
 
