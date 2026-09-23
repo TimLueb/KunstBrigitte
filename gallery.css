@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 18px;
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 100px;
 }
 .gallery img {

@@ -373,6 +373,9 @@ footer p {
   height: 48px;
   object-fit: contain;
 }
+/* Zentrieren, solange Platz ist; bei Überbreite bleiben alle Bilder erreichbar. */
+.lightbox-thumbs img:first-child { margin-inline-start: auto; }
+.lightbox-thumbs img:last-child { margin-inline-end: auto; }
 @media (max-width: 600px) {
   .lightbox { padding-inline: 52px; }
 }
