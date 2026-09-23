@@ -4,7 +4,11 @@ function includeHTML(id, url) {
       if (!response.ok) throw new Error('Datei nicht gefunden: ' + url);
       return response.text();
     })
-    .then(data => document.getElementById(id).innerHTML = data)
+    .then(data => {
+      const target = document.getElementById(id);
+      target.innerHTML = data;
+      target.dispatchEvent(new CustomEvent('site:included', { bubbles: true }));
+    })
     .catch(err => console.error(err));
 }
 
