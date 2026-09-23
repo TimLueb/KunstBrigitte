@@ -1,0 +1,32 @@
+/* Gemeinsame Galerieansicht nach „Kunst im Gewächshaus“. */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: flex-start;
+    margin-bottom: 100px;
+}
+.gallery img {
+    width: 260px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+.gallery img:hover, .gallery img:focus {
+    transform: scale(1.03);
+    outline: 2px solid #bbb;
+}
+
+@media (max-width: 600px) {
+    .gallery img { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery img { transition: none; }
+}
