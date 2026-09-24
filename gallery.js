@@ -1,6 +1,5 @@
 (function() {
-    const gallery = document.querySelector('.gallery');
-    const images = Array.from(gallery.querySelectorAll('img'));
+    const images = Array.from(document.querySelectorAll('.gallery img'));
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('.lightbox-img');
     const closeBtn = lightbox.querySelector('.close');
