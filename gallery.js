@@ -6,6 +6,11 @@
     const prevBtn = lightbox.querySelector('.prev');
     const nextBtn = lightbox.querySelector('.next');
     const thumbs = lightbox.querySelector('.lightbox-thumbs');
+    const caption = document.createElement('div');
+    caption.className = 'lightbox-caption';
+    caption.setAttribute('aria-live', 'polite');
+    caption.hidden = true;
+    lightbox.appendChild(caption);
     let current = 0;
     let opener = null;
 
@@ -38,6 +43,16 @@
         // Full-quality originals are requested only for the selected artwork.
         lightboxImg.src = images[current].dataset.original || images[current].src;
         lightboxImg.alt = images[current].alt;
+        const sourceCaption = images[current].closest('.gallery-item')?.querySelector('figcaption');
+        caption.replaceChildren();
+        if (sourceCaption) {
+            Array.from(sourceCaption.children).forEach(item => caption.appendChild(item.cloneNode(true)));
+            caption.hidden = false;
+            lightbox.classList.add('has-artwork-caption');
+        } else {
+            caption.hidden = true;
+            lightbox.classList.remove('has-artwork-caption');
+        }
         Array.from(thumbs.children).forEach((t, i) => {
             t.classList.toggle('active', i === current);
             if (i === current) t.scrollIntoView({ block: 'nearest', inline: 'nearest' });

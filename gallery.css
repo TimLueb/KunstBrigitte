@@ -18,6 +18,33 @@
     cursor: pointer;
     transition: transform 0.15s;
 }
+.gallery-item {
+    width: 260px;
+    max-width: 100%;
+    margin: 0;
+}
+.gallery-item img {
+    width: 100%;
+    margin-bottom: 0;
+}
+.artwork-caption {
+    display: grid;
+    gap: 0.18rem;
+    margin-top: 0.65rem;
+    color: #444;
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+.artwork-caption__title {
+    color: #222;
+    font-family: 'Cardo', Georgia, serif;
+    font-size: 1.08rem;
+    font-weight: 700;
+}
+.artwork-caption__details {
+    color: #777;
+    font-size: 0.76rem;
+}
 .gallery img:hover, .gallery img:focus {
     transform: scale(1.03);
     outline: 2px solid #bbb;
@@ -25,6 +52,52 @@
 
 @media (max-width: 600px) {
     .gallery img { width: 100%; }
+    .gallery-item { width: 100%; }
+}
+
+/* Werkangaben stehen in der Einzelansicht unter dem Bild. */
+.lightbox.has-artwork-caption {
+    justify-content: center;
+}
+.lightbox.has-artwork-caption .lightbox-img {
+    max-height: min(70vh, calc(100dvh - 220px));
+}
+.lightbox-caption {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    column-gap: 0.6em;
+    row-gap: 0.22rem;
+    max-width: 92vw;
+    margin-top: 0.9rem;
+    color: #f2f0ed;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: center;
+}
+.lightbox-caption .artwork-caption__title {
+    color: #fff;
+    font-size: 1.3rem;
+}
+.lightbox-caption .artwork-caption__description {
+    color: inherit;
+}
+.lightbox-caption .artwork-caption__details {
+    color: #c3c0bc;
+    font-size: 0.84rem;
+}
+.lightbox-caption[hidden] { display: none; }
+
+@media (max-width: 600px) {
+    .lightbox.has-artwork-caption .lightbox-img {
+        max-height: min(62vh, calc(100dvh - 225px));
+    }
+    .lightbox-caption {
+        max-width: 92vw;
+        margin-top: 0.7rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
