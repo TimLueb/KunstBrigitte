@@ -1,10 +1,13 @@
 # Galerie-Vorschaubilder
 
-Nach dem Ergänzen von Bildern in einer `.gallery` aus dem Website-Verzeichnis ausführen:
+Nach dem Ergänzen von Bildern in einer `.gallery` aus dem Website-Verzeichnis ausführen. Ohne Seitenangabe verarbeitet das Skript alle HTML-Seiten; einzelne Seiten lassen sich gezielt angeben:
 
 ```sh
 python3 tools/optimize-galleries.py
+python3 tools/optimize-galleries.py collagen.html
 ```
+
+Das Skript berücksichtigt alle `.gallery`-Blöcke jeder ausgewählten Seite.
 
 Benötigt macOS mit Swift (Apple Command Line Tools). In einem normalen Terminal ausführen: Apples ImageIO benötigt Zugriff auf die lokalen Grafikdienste. Eine eingeschränkte Sandbox kann fehlerhafte Exporte erzeugen.
 
